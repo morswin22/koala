@@ -14,9 +14,9 @@ odszyfrowane = []
 for n in range(1,len(alfabet)+1):
     tekst = ""
     for litera in zaszyfrowane:
-        indeks = alfabet.index(litera) - n
-        if indeks < 0:
-            indeks += len(alfabet)
+        indeks = alfabet.index(litera) + n
+        if indeks >= len(alfabet):
+            indeks -= len(alfabet)
         tekst += alfabet[indeks]
     if re.search(rf"{wyraz}", tekst, re.UNICODE):
         odszyfrowane.append((str(n), tekst))
